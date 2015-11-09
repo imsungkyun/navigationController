@@ -49,6 +49,7 @@ class ViewController: UIViewController {
         var outputText:String
         stringText = String(intText)
         let textLen = stringText.characters.count
+        print("SKIM")
        // stringText.
         if (textLen < 5) {
           //  for character in stringText {
