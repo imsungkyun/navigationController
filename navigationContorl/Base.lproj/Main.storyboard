@@ -17,27 +17,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hyy-L8-gLg">
-                                <rect key="frame" x="137" y="186" width="100" height="30"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zab-lj-cVV">
+                                <rect key="frame" x="68" y="162" width="238" height="261"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0v3-qf-QIP">
+                                        <rect key="frame" x="55" y="0.0" width="126" height="142"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hyy-L8-gLg">
+                                        <rect key="frame" x="67" y="175" width="104" height="51"/>
+                                        <animations/>
+                                        <state key="normal" backgroundImage="arrow.gif"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="Push" id="PjQ-Wk-mTB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <animations/>
-                                <state key="normal" title="Push View"/>
-                                <connections>
-                                    <segue destination="6EP-mo-hNt" kind="show" identifier="PushSecond" id="Yk6-qq-gFv"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0v3-qf-QIP">
-                                <rect key="frame" x="124" y="20" width="126" height="142"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zab-lj-cVV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="laB-DD-U73"/>
+                            <constraint firstItem="zab-lj-cVV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ym6-PV-giz"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="1" id="h9I-x2-Ec8">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="OK8-NZ-WBe"/>
+                        <barButtonItem key="backBarButtonItem" title="back" id="1u8-Po-0kY"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -48,58 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="960" y="-410"/>
-        </scene>
-        <!--2-->
-        <scene sceneID="nnh-pB-8Hd">
-            <objects>
-                <viewController id="6EP-mo-hNt" customClass="SecondViewController" customModule="navigationContorl" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aZv-Fd-smh"/>
-                        <viewControllerLayoutGuide type="bottom" id="SP5-Si-z46"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="78N-dv-xGJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8n-zP-tPi">
-                                <rect key="frame" x="139" y="196" width="100" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="cjD-np-0j0"/>
-                                    <constraint firstAttribute="height" constant="30" id="fEr-ij-PCc"/>
-                                </constraints>
-                                <state key="normal" title="Push View"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="PushFirst" id="Dwb-h6-S0E"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nv-Oq-LI9">
-                                <rect key="frame" x="124" y="28" width="126" height="142"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="SP5-Si-z46" firstAttribute="top" secondItem="V8n-zP-tPi" secondAttribute="bottom" constant="238" id="nKn-If-dHQ"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="2" id="C5P-AW-aA7">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="blM-hw-kuB"/>
-                    </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="NavigationSecond" destination="C5P-AW-aA7" id="qYw-QV-nX7"/>
-                        <outlet property="SecondViewLable" destination="1Nv-Oq-LI9" id="Ld1-Ja-fJ1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e7y-RU-nzd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1687" y="-416"/>
+            <point key="canvasLocation" x="959.5" y="-410.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zmr-cL-P0a">
@@ -122,7 +82,10 @@
             <point key="canvasLocation" x="263" y="-416"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.gif" width="300" height="200"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Dwb-h6-S0E"/>
+        <segue reference="c6h-qg-yhx"/>
     </inferredMetricsTieBreakers>
 </document>
