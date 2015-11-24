@@ -12,91 +12,48 @@ class ViewController: UIViewController {
     @IBOutlet var ViewLable: UILabel!
     @IBOutlet var NavigationView: UINavigationItem!
     var data:Int?
-    var pageNum:Int = 1
+    var pageNum:Int!
     var currentDeviceOrientation: UIDeviceOrientation = .Unknown
+    @IBOutlet var TableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("JJY SKIM")
+        self.pageNum = self.navigationController?.viewControllers.count
 
         UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceDidRotate:", name: UIDeviceOrientationDidChangeNotification, object: nil)
-
-        // Do any additional setup after loading the view, typically from a nib.
-        if let label = data {
-            self.pageNum = data!
-
-            // rotation View
-            rotationView()
-            
-            // back button
-            let backNum:String = String(self.pageNum - 1)
-            print("*****")
-            print(backNum)
-//            NavigationView.backBarButtonItem!.title = (backNum)
-           
-            let backItem = UIBarButtonItem(title: "back", style: .Plain, target: self, action: "pageRefresh:")
-            NavigationView.backBarButtonItem = backItem
-            
-            
-            
-            // Init button
+        // rotation View
+        rotationView()
+        
+        // Init button
+        if (self.pageNum != 1) {
             self.navigationController?.setNavigationBarHidden(false, animated: true)
-            let myBackButton:UIButton = UIButton(type: UIButtonType.Custom)
-            myBackButton.addTarget(self, action: "popToRoot:", forControlEvents: UIControlEvents.TouchUpInside)
-            myBackButton.setTitle("처음으로", forState: UIControlState.Normal)
-            myBackButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
-            myBackButton.sizeToFit()
-            let myCustomBackButtonItem:UIBarButtonItem = UIBarButtonItem(customView: myBackButton)
-            NavigationView.rightBarButtonItem  = myCustomBackButtonItem
-            
-        }
-    }
-    func pageRefresh(sender: UIBarButtonItem) {
-        print("22222222")
-    }
-    /*
-    override func didMoveToParentViewController(parent: UIViewController?) {
-        super.didMoveToParentViewController(parent)
-        
-        if parent == nil{
-           // print("Back Button pressed.")
-           // print(pageNum)
-            self.pageNum--
-           // print(pageNum)
-           // print("-----")
+        let myBackButton:UIButton = UIButton(type: UIButtonType.Custom)
+        myBackButton.addTarget(self, action: "popToRoot:", forControlEvents: UIControlEvents.TouchUpInside)
+        myBackButton.setTitle("처음으로", forState: UIControlState.Normal)
+        myBackButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+        myBackButton.sizeToFit()
+        let myCustomBackButtonItem:UIBarButtonItem = UIBarButtonItem(customView: myBackButton)
+        NavigationView.rightBarButtonItem  = myCustomBackButtonItem
         }
         
-    }
-    */
-    func popToRoot(sender:UIBarButtonItem){
-        self.pageNum = 1
-        self.navigationController!.popToRootViewControllerAnimated(true)
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressed:")
+        self.view.addGestureRecognizer(longPressRecognizer)
+        
+        
     }
 
-    /*
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        super.willMoveToParentViewController(parent)
-        if parent == nil {
-         //   --pageNum
-         //   print("_____")
-         //   print(pageNum)
-        }
+    func popToRoot(sender:UIBarButtonItem){
+        self.navigationController!.popToRootViewControllerAnimated(true)
+        rotationView()
     }
-    */
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "Push") {
-            print("+++++")
-            print(pageNum)
-            (segue.destinationViewController as! ViewController).data = ++self.pageNum
-            print(pageNum)
-            print("+++++++")
-        }
-    }
     var numSet = ["영", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"]
     var unit = ["십", "백", "천"]
  //   var unit2 = ["만", "억", "조"]
@@ -139,6 +96,7 @@ class ViewController: UIViewController {
     func rotationView() {
         if (UIDevice.currentDevice().orientation == UIDeviceOrientation.LandscapeLeft ||
             UIDevice.currentDevice().orientation == UIDeviceOrientation.LandscapeRight ||
+            UIDevice.currentDevice().orientation == UIDeviceOrientation.PortraitUpsideDown ||
             UIDevice.currentDevice().orientation == UIDeviceOrientation.Unknown) {
             
             let hangle = translate_label(self.pageNum)
@@ -151,5 +109,16 @@ class ViewController: UIViewController {
         }
     }
 
+    func longPressed(sender: UILongPressGestureRecognizer)
+    {
+        print("longpressed")
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("tableView") as! UIViewController
+        self.presentViewController(vc, animated: true, completion: nil)
+
+        print("longpressed")
+    }
+    
 }
 

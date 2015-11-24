@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
-        <!--1-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="navigationContorl" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,9 +47,7 @@
                             <constraint firstItem="zab-lj-cVV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ym6-PV-giz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="1" id="h9I-x2-Ec8">
-                        <barButtonItem key="backBarButtonItem" title="back" id="1u8-Po-0kY"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="h9I-x2-Ec8"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="NavigationView" destination="h9I-x2-Ec8" id="ti6-Sa-Bo7"/>
@@ -59,7 +57,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="959.5" y="-410.5"/>
+            <point key="canvasLocation" x="944.5" y="-410.5"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="ydi-rf-YOa">
+            <objects>
+                <tableViewController storyboardIdentifier="tableView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FyT-sY-g5E" customClass="TableViewController" customModule="navigationContorl" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="FI6-uR-5uz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jyd-ip-ovX">
+                                <rect key="frame" x="0.0" y="50" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jyd-ip-ovX" id="G4p-Zx-bqf">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FyT-sY-g5E" id="8NT-OE-Kcx"/>
+                            <outlet property="delegate" destination="FyT-sY-g5E" id="Hdl-R4-d3u"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="PageTableView" destination="FI6-uR-5uz" id="Mul-qX-Ba8"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aAN-Fb-lJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1406.5" y="-410.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zmr-cL-P0a">
