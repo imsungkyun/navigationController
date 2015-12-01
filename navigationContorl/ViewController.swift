@@ -18,7 +18,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("JJY SKIM")
         self.pageNum = self.navigationController?.viewControllers.count
 
         UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
@@ -39,6 +38,7 @@ class ViewController: UIViewController {
         }
         
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressed:")
+        longPressRecognizer.minimumPressDuration = 1.0
         self.view.addGestureRecognizer(longPressRecognizer)
         
         
@@ -108,16 +108,19 @@ class ViewController: UIViewController {
             NavigationView.title = String(self.pageNum)
         }
     }
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showTable" {
+            (segue.destinationViewController as! TableViewController).pageDepth = self.pageNum
+        }
+    }
+    
     func longPressed(sender: UILongPressGestureRecognizer)
     {
-        print("longpressed")
-
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("tableView") as! UIViewController
-        self.presentViewController(vc, animated: true, completion: nil)
-
-        print("longpressed")
+        self.performSegueWithIdentifier("showTable", sender: self)
+        
+        let tableController:TableViewController = TableViewController()
+        self.presentViewController(tableController, animated: true, completion: nil)
     }
     
 }
